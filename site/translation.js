@@ -222,7 +222,7 @@
   var PHASES_VI = {
     0: { name: 'Cài đặt & Công cụ (Setup & Tooling)', desc: 'Chuẩn bị sẵn sàng môi trường làm việc cho tất cả các phần tiếp theo.' },
     1: { name: 'Nền tảng Toán học (Math Foundations)', desc: 'Bản chất trực giác đằng sau mỗi thuật toán AI, thông qua mã nguồn.' },
-    2: { name: 'Cơ bản về Học máy (ML Fundamentals)', desc: 'Học máy cổ điển — vẫn là xương sống của hầu hết hệ thống AI trong thực tế.' },
+    2: { name: 'Cơ bản về Học máy (ML Fundamentals)', desc: 'Học máy cổ điển - vẫn là xương sống của hầu hết hệ thống AI trong thực tế.' },
     3: { name: 'Cốt lõi Học sâu (Deep Learning Core)', desc: 'Mạng nơ-ron từ các nguyên lý cơ bản. Không sử dụng thư viện cho đến khi bạn tự viết được một thư viện.' },
     4: { name: 'Thị giác Máy tính (Computer Vision)', desc: 'Từ bộ lọc tích chập đến Vision Transformers. Nhìn nhận thế giới thông qua các điểm ảnh (pixels).' },
     5: { name: 'Xử lý Ngôn ngữ Tự nhiên (NLP)', desc: 'Từ TF-IDF và biểu diễn từ (word embeddings) đến các mô hình chuỗi-kế-tiếp-chuỗi (seq2seq).' },
@@ -347,12 +347,12 @@
     "Diffusion Model": {
       term: "Mô hình khuếch tán (Diffusion Model)",
       says: "AI vẽ tranh từ nhiễu hạt",
-      means: "Mô hình được huấn luyện để đảo ngược một quy trình thêm nhiễu dần dần — nó học cách dự đoán và loại bỏ nhiễu khỏi ảnh, từ đó có thể tạo ra hình ảnh sắc nét từ một khung tranh toàn nhiễu ngẫu nhiên ban đầu"
+      means: "Mô hình được huấn luyện để đảo ngược một quy trình thêm nhiễu dần dần - nó học cách dự đoán và loại bỏ nhiễu khỏi ảnh, từ đó có thể tạo ra hình ảnh sắc nét từ một khung tranh toàn nhiễu ngẫu nhiên ban đầu"
     },
     "DPO (Direct Preference Optimization)": {
       term: "Tối ưu hóa tùy chọn trực tiếp (DPO)",
       says: "Phiên bản RLHF đơn giản hóa",
-      means: "Phương pháp huấn luyện căn chỉnh mô hình bỏ qua hoàn toàn việc tạo mô hình phần thưởng (reward model) — nó trực tiếp tối ưu hóa mô hình ngôn ngữ để ưu tiên câu trả lời tốt hơn trong các cặp dữ liệu phản hồi của con người"
+      means: "Phương pháp huấn luyện căn chỉnh mô hình bỏ qua hoàn toàn việc tạo mô hình phần thưởng (reward model) - nó trực tiếp tối ưu hóa mô hình ngôn ngữ để ưu tiên câu trả lời tốt hơn trong các cặp dữ liệu phản hồi của con người"
     },
     "Dropout": {
       term: "Tắt nơ-ron ngẫu nhiên (Dropout)",
@@ -407,7 +407,7 @@
     "GPT": {
       term: "Mô hình GPT (Generative Pre-trained Transformer)",
       says: "Trí tuệ nhân tạo ChatGPT",
-      means: "Generative Pre-trained Transformer — kiến trúc transformer chỉ chứa bộ giải mã chuyên biệt để dự đoán từ tố tiếp theo, được huấn luyện trước trên kho dữ liệu khổng lồ của internet"
+      means: "Generative Pre-trained Transformer - kiến trúc transformer chỉ chứa bộ giải mã chuyên biệt để dự đoán từ tố tiếp theo, được huấn luyện trước trên kho dữ liệu khổng lồ của internet"
     },
     "GAN (Generative Adversarial Network)": {
       term: "Mạng đối nghịch tạo sinh (GAN)",
@@ -532,7 +532,7 @@
     "Prompt Engineering": {
       term: "Kỹ nghệ gợi ý (Prompt Engineering)",
       says: "Nghệ thuật giao tiếp với AI",
-      means: "Quá trình thiết kế, thử nghiệm và tối ưu hóa văn bản đầu vào (prompt) — bao gồm khẩu lệnh hệ thống, ví dụ minh họa và kích hoạt chuỗi tư duy — để LLM cho ra kết quả mong muốn một cách ổn định nhất"
+      means: "Quá trình thiết kế, thử nghiệm và tối ưu hóa văn bản đầu vào (prompt) - bao gồm khẩu lệnh hệ thống, ví dụ minh họa và kích hoạt chuỗi tư duy - để LLM cho ra kết quả mong muốn một cách ổn định nhất"
     },
     "Prompt Injection": {
       term: "Tấn công chèn gợi ý (Prompt Injection)",

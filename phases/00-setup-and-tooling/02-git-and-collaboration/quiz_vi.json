@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "Mục đích chính của 'hệ thống quản lý phiên bản' (version control) giúp bạn làm gì?",
+      "options": [
+        "Tăng tốc độ thực thi mã nguồn",
+        "Theo dõi các thay đổi của tệp theo thời gian và cộng tác hiệu quả với người khác",
+        "Nén các tệp tin để tiết kiệm dung lượng đĩa cứng",
+        "Tự động sửa các lỗi (bugs) trong mã nguồn của bạn"
+      ],
+      "correct": 1,
+      "explanation": "Các hệ thống quản lý phiên bản như Git ghi lại mọi thay đổi được thực hiện đối với tệp tin, cho phép bạn khôi phục lại trạng thái cũ và cộng tác với những người khác trên cùng một kho chứa mã nguồn."
+    },
+    {
+      "stage": "pre",
+      "question": "'Kho chứa' (repository - repo) trong bối cảnh phát triển phần mềm được định nghĩa là gì?",
+      "options": [
+        "Một dịch vụ lưu trữ đám mây tương tự như Google Drive",
+        "Một tập hợp các tệp tin và toàn bộ lịch sử thay đổi của chúng được quản lý bởi hệ thống kiểm soát phiên bản",
+        "Một cơ sở dữ liệu để lưu trữ thông tin của người dùng",
+        "Một trình quản lý gói để cài đặt các thư viện bổ sung"
+      ],
+      "correct": 1,
+      "explanation": "Một kho chứa (repo) là một thư mục được theo dõi bởi Git chứa tất cả các tệp dự án cùng với lịch sử đầy đủ của mọi thay đổi được thực hiện đối với các tệp đó."
+    },
+    {
+      "stage": "post",
+      "question": "Đâu là trình tự đúng để tiến hành lưu trữ và sao lưu cục bộ tiến trình làm việc của bạn lên đám mây Git?",
+      "options": [
+        "git push, git add, git commit",
+        "git commit, git add, git push",
+        "git add, git commit, git push",
+        "git clone, git add, git push"
+      ],
+      "correct": 2,
+      "explanation": "Đầu tiên, bạn chuẩn bị lưu trữ các thay đổi bằng lệnh 'git add', sau đó lưu lại ảnh chụp tiến trình bằng lệnh 'git commit', và cuối cùng là đẩy mã nguồn lên máy chủ bằng lệnh 'git push'. Đây là quy trình làm việc hàng ngày chuẩn."
+    },
+    {
+      "stage": "post",
+      "question": "Lệnh 'git checkout -b experiment/new-optimizer' thực hiện hành động nào sau đây?",
+      "options": [
+        "Tải xuống một nhánh từ GitHub có tên là experiment/new-optimizer",
+        "Tạo một nhánh mới có tên experiment/new-optimizer và chuyển sang nhánh đó ngay lập tức",
+        "Xóa nhánh có tên experiment/new-optimizer",
+        "Khôi phục tất cả các tệp để khớp chính xác với nhánh experiment/new-optimizer"
+      ],
+      "correct": 1,
+      "explanation": "Tham số '-b' giúp tạo một nhánh mới với tên được cung cấp và ngay lập tức chuyển sang nhánh đó, cho phép bạn tự do thử nghiệm mà không làm ảnh hưởng đến nhánh chính 'main'."
+    },
+    {
+      "stage": "post",
+      "question": "Tại sao bạn nên thêm các đuôi tệp '.pt', '.pth' và '.safetensors' vào tệp '.gitignore' của dự án?",
+      "options": [
+        "Chúng là các tệp kiểm thử Python không nên đưa lên kho chứa",
+        "Chúng là các tệp checkpoint mô hình có dung lượng cực lớn mà Git không được thiết kế để theo dõi và hoàn toàn có thể tự tái tạo lại",
+        "Chúng chứa các khóa API bảo mật nhạy cảm",
+        "Git hoàn toàn không thể theo dõi bất kỳ loại tệp nhị phân nào"
+      ],
+      "correct": 1,
+      "explanation": "Các tệp checkpoint mô hình (.pt, .pth, .safetensors) thường có dung lượng lên đến hàng gigabytes. Git không được tối ưu để theo dõi các tệp nhị phân lớn, do đó chúng nên được loại trừ và lưu trữ riêng biệt."
+    }
+  ]
+}

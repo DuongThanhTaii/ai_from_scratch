@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "Tại sao các dự án AI cần có một môi trường ảo (virtual environment) riêng biệt?",
+      "options": [
+        "Môi trường ảo giúp mã nguồn chạy nhanh hơn",
+        "Chúng cách ly các phụ thuộc (dependencies) để các dự án khác nhau không bị xung đột",
+        "Python bắt buộc phải có môi trường ảo mới nhập được các gói thư viện",
+        "Môi trường ảo cung cấp quyền truy cập GPU trực tiếp"
+      ],
+      "correct": 1,
+      "explanation": "Môi trường ảo giúp cô lập các phiên bản thư viện của từng dự án riêng biệt. Nếu không có chúng, việc nâng cấp PyTorch cho một dự án có thể làm hỏng dự án khác phụ thuộc vào phiên bản cũ hơn."
+    },
+    {
+      "stage": "pre",
+      "question": "Bộ thư viện CUDA cung cấp chức năng gì cho các tác vụ xử lý AI?",
+      "options": [
+        "Một trình quản lý gói Python dành cho các thư viện ML",
+        "Một nền tảng web (web framework) để triển khai mô hình",
+        "Tính toán song song trên GPU NVIDIA cho các phép toán ma trận",
+        "Một môi trường chạy container (container runtime) để phục vụ mô hình"
+      ],
+      "correct": 2,
+      "explanation": "CUDA là nền tảng tính toán song song của NVIDIA cho phép bạn chạy các phép toán ma trận trên hàng nghìn lõi GPU cùng một lúc. PyTorch và TensorFlow đều sử dụng nó bên dưới hệ thống."
+    },
+    {
+      "stage": "post",
+      "question": "Trong kiến trúc môi trường phát triển gồm 4 tầng, tầng nào bắt buộc phải được cài đặt trước tiên?",
+      "options": [
+        "Thư viện AI/ML (AI/ML Libraries - PyTorch, JAX)",
+        "Trình quản lý gói (Package Managers - pip, npm, cargo)",
+        "Môi trường chạy ngôn ngữ (Language Runtimes - Python, Node.js)",
+        "Nền tảng hệ thống (System Foundation - OS, shell, GPU drivers)"
+      ],
+      "correct": 3,
+      "explanation": "Bạn cài đặt từ dưới lên: nền tảng hệ thống trước (Hệ điều hành, trình điều khiển GPU), sau đó là trình quản lý gói, tiếp theo là môi trường chạy ngôn ngữ, và cuối cùng là các thư viện AI. Mỗi tầng phụ thuộc chặt chẽ vào tầng bên dưới nó."
+    },
+    {
+      "stage": "post",
+      "question": "Mục đích chính của trình quản lý uv trong một dự án Python AI là gì?",
+      "options": [
+        "Một công cụ giám sát hiệu suất GPU",
+        "Một trình giải quyết và cài đặt gói thư viện Python siêu nhanh",
+        "Một thư viện trực quan hóa mạng nơ-ron",
+        "Một trình biên dịch CUDA cho các nhân tùy chỉnh"
+      ],
+      "correct": 1,
+      "explanation": "uv là một trình cài đặt và giải quyết gói thư viện Python cực nhanh được viết bằng Rust. Nó thay thế pip với tốc độ phân tích và cài đặt phụ thuộc nhanh hơn từ 10 đến 100 lần."
+    },
+    {
+      "stage": "post",
+      "question": "Làm thế nào để bạn xác minh xem PyTorch có thể truy cập thành công vào GPU của bạn hay không?",
+      "options": [
+        "import torch; print(torch.__version__)",
+        "nvidia-smi --query",
+        "import torch; print(torch.cuda.is_available())",
+        "python -c 'import gpu'"
+      ],
+      "correct": 2,
+      "explanation": "Lệnh torch.cuda.is_available() trả về True nếu PyTorch có thể truy cập vào GPU hỗ trợ CUDA. Trên dòng máy Apple Silicon, sử dụng torch.backends.mps.is_available() cho Metal Performance Shaders."
+    }
+  ]
+}

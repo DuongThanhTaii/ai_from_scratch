@@ -1885,14 +1885,31 @@
                 showError(isVi ? 'Lỗi hiển thị' : 'Render error', isVi ? 'Đã tải nội dung bài học nhưng không hiển thị được. Chi tiết lỗi xem tại console trình duyệt.' : 'Loaded the lesson markdown but failed to render it. Details in the browser console.');
                 return;
               }
-              fetch(quizUrl)
-                .then(function (res) { return res.ok ? res.json() : null; })
-                .catch(function () { return null; })
-                .then(function (data) {
-                  if (!data) return;
-                  try { renderQuiz(data); }
-                  catch (err) { console.error('renderQuiz failed', err); }
-                });
+              function loadQuiz(qUrl, isFallback) {
+                fetch(qUrl)
+                  .then(function (res) {
+                    if (!res.ok) {
+                      if (isVi && !isFallback) {
+                        loadQuiz(quizUrl, true);
+                        return null;
+                      }
+                      return null;
+                    }
+                    return res.json();
+                  })
+                  .then(function (data) {
+                    if (!data) return;
+                    try { renderQuiz(data); }
+                    catch (err) { console.error('renderQuiz failed', err); }
+                  })
+                  .catch(function () {
+                    if (isVi && !isFallback) {
+                      loadQuiz(quizUrl, true);
+                    }
+                  });
+              }
+              var targetQuizUrl = isVi ? ('https://raw.githubusercontent.com/DuongThanhTaii/ai_from_scratch/main/' + path + '/quiz_vi.json') : quizUrl;
+              loadQuiz(targetQuizUrl, false);
             })
             .catch(function () {
               showError(isVi ? 'Không tìm thấy bài học' : 'Lesson not found', isVi ? 'Không thể tải nội dung bài học tại <code>' + escapeHtml(path) + '</code>. Có thể bài học này chưa được viết.' : 'Could not fetch the lesson at <code>' + escapeHtml(path) + '</code>. It may not have been written yet.');
