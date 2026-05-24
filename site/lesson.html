@@ -3050,8 +3050,16 @@
         var pathLower = (lessonPath || '').toLowerCase();
         var lessonName = '';
         if (currentLessonIndex >= 0) lessonName = flatLessons[currentLessonIndex].lessonName;
+        var isVi = window.AIFSTranslations.getLanguage() === 'vi';
 
         if (pathLower.indexOf('math') >= 0 || pathLower.indexOf('linear-algebra') >= 0 || pathLower.indexOf('calculus') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Tích vô hướng đo lường đại lượng nào giữa hai véc-tơ?', opts: ['Tổng của chúng', 'Độ thẳng hàng/đồng hướng của chúng', 'Tích có hướng của chúng', 'Khoảng cách giữa chúng'], answer: 1, explain: 'Tích vô hướng đo lường độ tương đồng hoặc độ đồng hướng giữa hai véc-tơ. Khi tích vô hướng bằng 0, hai véc-tơ vuông góc (orthogonal) với nhau.' },
+              { q: 'Véc-tơ gradient của một hàm số chỉ về hướng nào?', opts: ['Điểm cực tiểu', 'Hướng tăng mạnh nhất', 'Điểm yên ngựa gần nhất', 'Một hướng ngẫu nhiên'], answer: 1, explain: 'Gradient luôn chỉ về hướng tăng nhanh nhất của hàm số. Giải thuật cực tiểu hóa gradient (gradient descent) sẽ di chuyển ngược hướng gradient để tìm cực tiểu.' },
+              { q: 'Nhân ma trận kích thước (3, 5) với (5, 2) sẽ cho ra ma trận kích thước nào?', opts: ['(3, 2)', '(5, 5)', '(3, 5)', '(2, 3)'], answer: 0, explain: 'Quy tắc nhân ma trận: (m, n) x (n, p) = (m, p). Do đó (3, 5) x (5, 2) = (3, 2).' }
+            ];
+          }
           return [
             { q: 'What does a dot product measure between two vectors?', opts: ['Their sum', 'How aligned they are', 'Their cross product', 'The distance between them'], answer: 1, explain: 'The dot product measures the similarity or alignment between two vectors. When it is zero, the vectors are orthogonal.' },
             { q: 'What does the gradient of a function point toward?', opts: ['The minimum', 'The steepest ascent', 'The nearest saddle point', 'A random direction'], answer: 1, explain: 'The gradient always points in the direction of steepest increase. Gradient descent moves opposite to the gradient to find minima.' },
@@ -3060,6 +3068,13 @@
         }
 
         if (pathLower.indexOf('ml') >= 0 || pathLower.indexOf('regression') >= 0 || pathLower.indexOf('classification') >= 0 || pathLower.indexOf('supervised') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Mục đích của hàm mất mát (loss function) trong học máy là gì?', opts: ['Tự tạo dữ liệu mới', 'Đo lường độ sai lệch của các dự đoán', 'Lựa chọn các đặc trưng', 'Phân chia tập dữ liệu'], answer: 1, explain: 'Hàm mất mát lượng hóa sự khác biệt giữa giá trị dự đoán và giá trị thực tế. Trình tối ưu hóa sẽ tối thiểu hóa giá trị này trong quá trình huấn luyện.' },
+              { q: 'Tại sao chúng ta phải chia dữ liệu thành tập huấn luyện (train set) và tập kiểm thử (test set)?', opts: ['Để tiết kiệm bộ nhớ', 'Để đánh giá khả năng tổng quát hóa trên dữ liệu mới', 'Để huấn luyện nhanh hơn', 'Để giảm kích thước tập dữ liệu'], answer: 1, explain: 'Tập kiểm thử đóng vai trò là dữ liệu mới hoàn toàn, giúp phát hiện xem mô hình đang học vẹt (memorize) dữ liệu huấn luyện hay học được các quy luật tổng quát.' },
+              { q: 'Hiện tượng học quá khớp (overfitting) nghĩa là gì?', opts: ['Mô hình quá đơn giản', 'Mô hình ghi nhớ dữ liệu huấn luyện tốt nhưng thất bại trên dữ liệu mới', 'Mô hình huấn luyện quá chậm', 'Độ mất mát (loss) quá thấp'], answer: 1, explain: 'Học quá khớp xảy ra khi mô hình hoạt động cực tốt trên dữ liệu huấn luyện nhưng kém trên dữ liệu mới do nó đã học cả nhiễu (noise) thay vì quy luật thực tế (signal).' }
+            ];
+          }
           return [
             { q: 'What is the purpose of a loss function in machine learning?', opts: ['To generate data', 'To measure how wrong predictions are', 'To select features', 'To split data'], answer: 1, explain: 'A loss function quantifies the difference between predicted and actual values. The optimizer minimizes this value during training.' },
             { q: 'Why do we split data into train and test sets?', opts: ['To save memory', 'To evaluate generalization on unseen data', 'To make training faster', 'To reduce the dataset size'], answer: 1, explain: 'The test set acts as unseen data, revealing whether the model memorized training data or learned generalizable patterns.' },
@@ -3068,6 +3083,13 @@
         }
 
         if (pathLower.indexOf('deep-learning') >= 0 || pathLower.indexOf('neural') >= 0 || pathLower.indexOf('backprop') >= 0 || pathLower.indexOf('activation') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Thuật toán lan truyền ngược (backpropagation) tính toán đại lượng nào?', opts: ['Các dự đoán lan truyền xuôi', 'Đạo hàm riêng của hàm mất mát đối với từng trọng số', 'Tốc độ học (learning rate)', 'Dữ liệu huấn luyện mới'], answer: 1, explain: 'Lan truyền ngược sử dụng quy tắc chuỗi (chain rule) để tính toán mức độ đóng góp sai số của từng trọng số, từ đó điều chỉnh trọng số tương ứng.' },
+              { q: 'Tại sao mạng nơ-ron cần các hàm kích hoạt phi tuyến (non-linear activation functions)?', opts: ['Để đẩy nhanh quá trình huấn luyện', 'Nếu không có chúng, việc xếp chồng nhiều lớp cũng chỉ tương đương với một lớp tuyến tính duy nhất', 'Để giảm bộ nhớ sử dụng', 'Để chuẩn hóa đầu ra'], answer: 1, explain: 'Không có tính phi tuyến, mọi phép kết hợp các lớp tuyến tính sẽ thu gọn thành một phép biến đổi tuyến tính duy nhất. Các hàm như ReLU giúp mạng học được các quy luật phức tạp.' },
+              { q: 'Tốc độ học (learning rate) kiểm soát điều gì?', opts: ['Số lượng chu kỳ (epochs) huấn luyện', 'Kích thước của mỗi bước cập nhật trọng số', 'Số lượng các lớp nơ-ron', 'Kích thước gói dữ liệu (batch size)'], answer: 1, explain: 'Tốc độ học điều chỉnh kích thước bước cập nhật theo hướng gradient. Quá lớn sẽ gây phân kỳ (divergence), quá nhỏ sẽ khiến việc huấn luyện rất chậm hoặc bị kẹt.' }
+            ];
+          }
           return [
             { q: 'What does backpropagation compute?', opts: ['Forward predictions', 'The gradient of the loss with respect to each weight', 'The learning rate', 'New training data'], answer: 1, explain: 'Backpropagation uses the chain rule to compute how much each weight contributed to the error, then adjusts weights accordingly.' },
             { q: 'Why do neural networks need non-linear activation functions?', opts: ['To speed up training', 'Without them, stacking layers is equivalent to a single linear layer', 'To reduce memory usage', 'To normalize outputs'], answer: 1, explain: 'Without non-linearities, any composition of linear layers collapses to a single linear transformation. Activations like ReLU let the network learn complex patterns.' },
@@ -3076,6 +3098,13 @@
         }
 
         if (pathLower.indexOf('llm') >= 0 || pathLower.indexOf('transformer') >= 0 || pathLower.indexOf('attention') >= 0 || pathLower.indexOf('tokeniz') >= 0 || pathLower.indexOf('fine-tun') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Cơ chế tự chú ý (self-attention) cho phép mô hình transformer thực hiện điều gì?', opts: ['Xử lý các từ tố theo thứ tự tuần tự', 'Tính toán trọng số quan trọng của từng từ tố đối với tất cả các từ tố khác', 'Giảm kích thước từ vựng', 'Nén mô hình'], answer: 1, explain: 'Tự chú ý tính toán điểm liên quan giữa mọi cặp vị trí, cho phép mô hình liên kết các từ tố ở xa nhau mà không cần tuần tự mạng hồi quy.' },
+              { q: 'Tại sao LLMs sử dụng bộ tách từ (tokenizers) thay vì các ký tự thô?', opts: ['Do ký tự thô chiếm dung lượng quá lớn', 'Từ tố nén các mẫu lặp lại thường xuyên thành một đơn vị duy nhất, giúp rút ngắn độ dài chuỗi', 'Bộ tách từ giúp huấn luyện nhanh hơn', 'Ký tự thô không thể chuyển đổi thành vector nhúng'], answer: 1, explain: 'Các bộ tách từ phụ (subword tokenizers) như BPE cân bằng giữa kích thước từ vựng và độ dài chuỗi, biểu diễn từ thông dụng dưới dạng 1 token và phân tách các từ hiếm.' },
+              { q: 'Sự khác biệt cốt lõi giữa huấn luyện trước (pre-training) và tinh chỉnh (fine-tuning) là gì?', opts: ['Huấn luyện trước sử dụng dữ liệu được dán nhãn', 'Huấn luyện trước giúp mô hình nắm bắt ngôn ngữ chung; tinh chỉnh giúp thích ứng với tác vụ cụ thể', 'Tinh chỉnh sử dụng nhiều dữ liệu hơn', 'Không có sự khác biệt'], answer: 1, explain: 'Huấn luyện trước giúp mô hình học các mẫu ngôn ngữ từ lượng văn bản không dán nhãn khổng lồ. Tinh chỉnh nhận nền tảng đó và chuyên biệt hóa nó trên tập dữ liệu tác vụ nhỏ hơn.' }
+            ];
+          }
           return [
             { q: 'What does self-attention allow a transformer to do?', opts: ['Process tokens in order', 'Weight the importance of every token relative to every other token', 'Reduce vocabulary size', 'Compress the model'], answer: 1, explain: 'Self-attention computes pairwise relevance scores across all positions, allowing the model to relate distant tokens without recurrence.' },
             { q: 'Why do LLMs use tokenizers instead of raw characters?', opts: ['Characters are too large', 'Tokens compress frequent patterns into single units, reducing sequence length', 'Tokenizers are faster to train', 'Characters cannot be embedded'], answer: 1, explain: 'Subword tokenizers like BPE balance vocabulary size against sequence length, making common words single tokens while handling rare words as pieces.' },
@@ -3084,6 +3113,13 @@
         }
 
         if (pathLower.indexOf('rag') >= 0 || pathLower.indexOf('retrieval') >= 0 || pathLower.indexOf('embed') >= 0 || pathLower.indexOf('vector') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Ý tưởng cốt lõi đằng sau RAG (Retrieval-Augmented Generation) là gì?', opts: ['Huấn luyện một mô hình lớn hơn', 'Truy xuất ngữ cảnh liên quan trước khi tạo phản hồi', 'Sử dụng nhiều GPU hơn', 'Giảm kích thước mô hình'], answer: 1, explain: 'RAG củng cố các câu trả lời của LLM bằng các tài liệu truy xuất thực tế, giảm thiểu hiện tượng ảo tưởng (hallucination) và cập nhật kiến thức mới mà không cần huấn luyện lại.' },
+              { q: 'Các mô hình vector nhúng (embedding models) tạo ra sản phẩm gì?', opts: ['Các bản tóm tắt văn bản', 'Biểu diễn vector dày đặc của văn bản', 'Số lượng từ tố', 'Sửa lỗi ngữ pháp'], answer: 1, explain: 'Mô hình vector nhúng ánh xạ văn bản thành các vector có số chiều cố định, trong đó sự tương đồng về ngữ nghĩa tương ứng với khoảng cách hình học gần nhau.' },
+              { q: 'Tại sao nên sử dụng độ tương đồng cosine (cosine similarity) để so sánh các vector nhúng?', opts: ['Đây là thước đo duy nhất khả dụng', 'Nó đo góc giữa hai vector mà không phụ thuộc vào độ dài ma trận', 'Nó nhanh hơn tích vô hướng thô', 'Nó chỉ hoạt động với các số nguyên'], answer: 1, explain: 'Độ tương đồng cosine chuẩn hóa độ dài vector và tập trung vào hướng. Hai văn bản cùng chủ đề sẽ có độ tương đồng cosine cao bất kể độ dài văn bản ngắn dài khác nhau.' }
+            ];
+          }
           return [
             { q: 'What is the core idea behind RAG?', opts: ['Training a larger model', 'Retrieving relevant context before generating a response', 'Using more GPUs', 'Reducing model size'], answer: 1, explain: 'RAG (Retrieval-Augmented Generation) grounds LLM responses in retrieved documents, reducing hallucination and enabling knowledge updates without retraining.' },
             { q: 'What do embedding models produce?', opts: ['Text summaries', 'Dense vector representations of text', 'Token counts', 'Grammar corrections'], answer: 1, explain: 'Embedding models map text into fixed-dimensional vectors where semantic similarity corresponds to geometric proximity.' },
@@ -3092,6 +3128,13 @@
         }
 
         if (pathLower.indexOf('agent') >= 0 || pathLower.indexOf('tool') >= 0 || pathLower.indexOf('mcp') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Điều gì phân biệt một tác tử AI (AI Agent) với một chatbot thông thường?', opts: ['Tác tử chạy nhanh hơn', 'Tác tử có khả năng tự đưa ra hành động và sử dụng các công cụ một cách tự trị', 'Tác tử sử dụng các mô hình lớn hơn', 'Không có sự khác biệt nào'], answer: 1, explain: 'Tác tử hoạt động theo vòng lặp: quan sát, quyết định, hành động. Chúng có thể gọi các công cụ, đọc tệp, tìm kiếm web và kết hợp nhiều bước để hoàn thành tác vụ phức tạp.' },
+              { q: 'Giao thức MCP (Model Context Protocol) là gì?', opts: ['Một định dạng huấn luyện mô hình', 'Một giao thức tiêu chuẩn hóa để kết nối mô hình AI với các công cụ và nguồn dữ liệu', 'Một thuật toán nén mô hình', 'Một khung kiểm thử (testing framework)'], answer: 1, explain: 'MCP cung cấp một giao diện chung chuẩn hóa giữa trợ lý AI và các công cụ/dữ liệu bên ngoài, thay thế các kết nối tùy biến bằng một giao thức chuẩn hóa duy nhất.' },
+              { q: 'Tại sao việc sử dụng công cụ (tool-use) lại quan trọng đối với các mô hình LLM?', opts: ['Giúp giảm thiểu chi phí', 'Nó cho phép LLMs truy cập thông tin thời gian thực và hành động vượt ngoài việc tạo văn bản đơn thuần', 'Giúp câu trả lời ngắn gọn hơn', 'Loại bỏ hoàn toàn hiện tượng ảo tưởng'], answer: 1, explain: 'Công cụ mở rộng khả năng của LLMs vượt ra ngoài giới hạn thời gian dữ liệu huấn luyện, cho phép truy xuất thời gian thực, tính toán số liệu, thực thi mã nguồn và tương tác với hệ thống bên ngoài.' }
+            ];
+          }
           return [
             { q: 'What distinguishes an AI agent from a simple chatbot?', opts: ['Agents are faster', 'Agents can take actions and use tools autonomously', 'Agents use bigger models', 'There is no difference'], answer: 1, explain: 'Agents have a loop: observe, decide, act. They can call tools, read files, search the web, and chain multiple steps to complete complex tasks.' },
             { q: 'What is MCP (Model Context Protocol)?', opts: ['A model training format', 'A standardized protocol for connecting AI models to tools and data sources', 'A compression algorithm', 'A testing framework'], answer: 1, explain: 'MCP provides a universal interface between AI assistants and external tools/data, replacing one-off integrations with a standard protocol.' },
@@ -3100,6 +3143,13 @@
         }
 
         if (pathLower.indexOf('eval') >= 0 || pathLower.indexOf('safety') >= 0 || pathLower.indexOf('alignment') >= 0 || pathLower.indexOf('deploy') >= 0) {
+          if (isVi) {
+            return [
+              { q: 'Tại sao việc đánh giá (evals) lại cực kỳ quan trọng đối với các hệ thống AI thực tế?', opts: ['Để tiết kiệm tiền', 'Để đo lường hiệu suất một cách khách quan trước và sau mỗi thay đổi', 'Để làm mô hình lớn hơn', 'Đánh giá là bước tùy chọn không bắt buộc'], answer: 1, explain: 'Đánh giá chính là các bài kiểm thử của kỹ nghệ AI. Không có chúng, bạn không thể biết liệu một thay đổi đang cải thiện hay làm giảm chất lượng hệ thống. Đánh giá nên chạy trên mỗi thay đổi mã nguồn.' },
+              { q: 'Khái niệm "căn chỉnh" (alignment) trong an toàn AI có nghĩa là gì?', opts: ['Căn chỉnh văn bản hiển thị trên màn hình', 'Đảm bảo các hệ thống AI hoạt động theo đúng mục tiêu và giá trị của con người', 'Làm mô hình hoạt động nhanh hơn', 'Sử dụng cùng một tập dữ liệu huấn luyện'], answer: 1, explain: 'Căn chỉnh đảm bảo rằng khi hệ thống AI ngày càng thông minh hơn, chúng vẫn duy trì được tính hữu ích, trung thực và vô hại, hoạt động nhất quán với mục đích nhân loại.' },
+              { q: 'Một hàng rào bảo vệ (guardrail) trong bối cảnh LLM triển khai thực tế là gì?', opts: ['Một rào cản vật lý xung quanh máy chủ', 'Một bộ kiểm duyệt ngăn chặn đầu ra độc hại, lạc đề hoặc vi phạm chính sách', 'Một mô hình dự phòng', 'Một tầng lưu trữ đệm (caching layer)'], answer: 1, explain: 'Hàng rào bảo vệ kiểm tra dữ liệu đầu vào và đầu ra ở thời gian chạy (runtime), lọc bỏ các nội dung độc hại, tấn công chèn gợi ý, rò rỉ thông tin cá nhân PII trước khi gửi đến người dùng.' }
+            ];
+          }
           return [
             { q: 'Why are evals critical for production AI systems?', opts: ['To save money', 'To measure performance objectively before and after changes', 'To make the model bigger', 'Evals are optional'], answer: 1, explain: 'Evals are the tests of AI engineering. Without them, you cannot know if a change improved or regressed quality. They should run on every code change.' },
             { q: 'What does "alignment" mean in AI safety?', opts: ['Aligning text on screen', 'Ensuring AI systems act according to human intentions and values', 'Making models faster', 'Using the same training data'], answer: 1, explain: 'Alignment ensures that as AI systems become more capable, they remain helpful, honest, and harmless, acting in accordance with human goals.' },
@@ -3107,6 +3157,13 @@
           ];
         }
 
+        if (isVi) {
+          return [
+            { q: 'Khái niệm "tự xây dựng từ đầu" (from scratch) trong khóa học này nghĩa là gì?', opts: ['Không sử dụng máy tính', 'Xây dựng mỗi khái niệm bằng cách tự viết mã nguồn để hiểu bản chất thay vì chỉ đọc lý thuyết', 'Bắt đầu từ hợp ngữ (assembly language)', 'Chỉ sử dụng bút và giấy'], answer: 1, explain: 'Khóa học này tuân thủ phương pháp Xây dựng - Sử dụng - Sản phẩm: hiểu bản chất bằng cách tự viết mã nguồn trước, sau đó áp dụng trong thực tế, rồi đóng gói nó thành sản phẩm hữu ích.' },
+            { q: 'Tại sao khóa học này lại kết hợp cả toán học, ML và kỹ thuật hệ thống?', opts: ['Để kéo dài thời lượng học tập', 'Vì kỹ thuật AI thực tế đòi hỏi cả ba yếu tố để xây dựng các hệ thống sản xuất', 'Toán học chỉ là để cho vui', 'Kỹ thuật hệ thống là không bắt buộc'], answer: 1, explain: 'Các hệ thống AI thực tế yêu cầu nền tảng toán học (để hiểu bản chất), kiến thức ML (để mô hình hóa) và kỹ năng hệ thống (để triển khai vận hành ổn định và đáng tin cậy).' },
+            { q: 'Bước "Sản phẩm" (Ship) trong khung phương pháp Xây dựng - Sử dụng - Sản phẩm là gì?', opts: ['Vận chuyển hàng hóa vật lý bằng tàu', 'Tạo ra một công cụ có thể tái sử dụng như prompt, skill file hoặc tiện ích từ kiến thức đã học', 'Công bố một bài báo khoa học', 'Xóa toàn bộ mã nguồn của bạn'], answer: 2, explain: 'Bước Sản phẩm chuyển hóa việc học tập của bạn thành công cụ thực tế: một file prompt, tệp kỹ năng, công cụ kết nối MCP để đồng nghiệp (hoặc chính bạn trong tương lai) có thể ứng dụng được ngay.' }
+          ];
+        }
         return [
           { q: 'What does "from scratch" mean in this course?', opts: ['Using no computer', 'Building each concept by implementing it yourself, not just reading theory', 'Starting from assembly language', 'Only using pen and paper'], answer: 1, explain: 'This course follows a Build-Use-Ship methodology: first understand by building it, then apply it, then ship it as a real artifact.' },
           { q: 'Why does this course combine math, ML, and engineering?', opts: ['To make it longer', 'Because real AI engineering requires all three to build production systems', 'Math is just for fun', 'Engineering is optional'], answer: 1, explain: 'Production AI systems require mathematical foundations (for understanding), ML knowledge (for modeling), and engineering skills (for deployment and reliability).' },
