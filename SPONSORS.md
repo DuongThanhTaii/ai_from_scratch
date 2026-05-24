@@ -23,24 +23,11 @@ anything else using this project's name is unaffiliated.
 
 ## Reach
 
-These are real numbers, not pitch decks. Verified 2026-05-14 from the official analytics
-dashboard, screenshots available on request.
+`ai-engineering-from-scratch` is open-source, community-driven, and designed for high visibility across global AI developers. 
 
-| Window | Visitors | Page views | Growth |
-|---|---|---|---|
-| Last 7 days | 33,569 | 53,917 | +450% / +399% |
-| Last 30 days | 55,593 | 90,709 | +335% / +403% |
-
-- **GitHub stars:** 7,500+ and growing
-- **Top referrers (30d):** X / Twitter (18K), Google (7.1K), GitHub (5.3K), Instagram (1.2K),
-  Brave (505), LinkedIn (470)
-- **Top pages:** `/` (63K views), `/index.html` (15K), `/prereqs.html` (5.5K),
-  `/catalog.html` (4.9K), `/glossary.html` (2K)
-- **Cross-platform amplification:** Twitter/X is the #1 acquisition channel; Gold and
-  Platinum sponsors get co-amplified on the same channel via release-note threads.
-
-A sponsor placement at this scale is in the same range as a paid slot in a 50-100K monthly
-dev newsletter or a mid-tier independent dev blog.
+- **GitHub stars:** growing community support.
+- **Top referrers:** Search engines, direct GitHub traffic, and community sharing.
+- **Cross-platform amplification:** Release-note threads and social media promotion.
 
 ## Tier ladder
 

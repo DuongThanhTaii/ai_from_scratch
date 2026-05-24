@@ -1044,8 +1044,7 @@ relative links inside lesson docs.
 
 Free, MIT-licensed, 435 lessons. The curriculum is maintained on sponsorship alone. Cash only.
 
-**Reach (verified 2026-05-14):** 55,593 monthly visitors · 90,709 page views · 7.5K stars ·
-Twitter/X is the #1 acquisition channel.
+**Reach:** Free, open-source, and community-driven.
 
 | Tier | $/mo | What you get |
 |------|------|---|
