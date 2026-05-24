@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "Khóa API được sử dụng để làm gì khi thực hiện gọi các dịch vụ LLM?",
+      "options": [
+        "Mã hóa dữ liệu được gửi đến máy chủ",
+        "Xác thực danh tính của bạn và cấp quyền thực thi các yêu cầu",
+        "Nén các yêu cầu để giảm băng thông",
+        "Lựa chọn ngôn ngữ lập trình mà máy chủ sử dụng"
+      ],
+      "correct": 1,
+      "explanation": "Khóa API là một chuỗi ký tự duy nhất để xác định tài khoản của bạn, ủy quyền cho các yêu cầu của bạn và cho phép nhà cung cấp theo dõi việc sử dụng và tính phí."
+    },
+    {
+      "stage": "pre",
+      "question": "Tại sao các khóa API tuyệt đối không được đưa trực tiếp (hardcoded) vào mã nguồn?",
+      "options": [
+        "Các khóa được đưa trực tiếp vào mã nguồn khiến chương trình chạy chậm hơn",
+        "Chúng có thể vô tình bị đưa lên Git và lộ ra ngoài công khai",
+        "Python không thể đọc các chuỗi văn bản dài hơn 50 ký tự",
+        "Các nhà cung cấp API sẽ chặn các khóa xuất hiện trong các tệp mã nguồn"
+      ],
+      "correct": 1,
+      "explanation": "Các khóa API được viết trực tiếp trong mã nguồn có nguy cơ bị cam kết (committed) vào hệ thống quản lý phiên bản và đẩy lên các kho lưu trữ công cộng, nơi chúng có thể bị người khác thu thập và lạm dụng."
+    },
+    {
+      "stage": "post",
+      "question": "Phương pháp khuyên dùng để lưu trữ các khóa API khi phát triển ứng dụng cục bộ là gì?",
+      "options": [
+        "Lưu trong một biến Python ở đầu tệp lệnh của bạn",
+        "Lưu trong một tệp .env và liệt kê tệp này trong .gitignore",
+        "Lưu trong tệp README.md để dễ dàng truy cập",
+        "Lưu trong tệp requirements.txt bên cạnh các phiên bản gói thư viện"
+      ],
+      "correct": 1,
+      "explanation": "Tệp .env lưu trữ các khóa dưới dạng biến môi trường và phải được thêm vào .gitignore để không bao giờ bị cam kết vào hệ thống quản lý phiên bản. Các bộ SDK sẽ tự động đọc các khóa từ biến môi trường."
+    },
+    {
+      "stage": "post",
+      "question": "Trong cuộc gọi HTTP thô tới Anthropic, tiêu đề (header) nào mang khóa API?",
+      "options": [
+        "Authorization: Bearer sk-ant-...",
+        "x-api-key: sk-ant-...",
+        "Content-Type: application/json",
+        "anthropic-version: 2023-06-01"
+      ],
+      "correct": 1,
+      "explanation": "API của Anthropic sử dụng tiêu đề 'x-api-key' để xác thực, thay vì mô hình 'Authorization: Bearer' phổ biến hơn. Đây là thiết kế đặc thù cho API của họ."
+    },
+    {
+      "stage": "post",
+      "question": "Điều gì xảy ra khi bạn vượt quá giới hạn tần suất (rate limit) của API?",
+      "options": [
+        "Khóa API của bạn bị thu hồi vĩnh viễn",
+        "Máy chủ trả về một lỗi (thông thường là HTTP 429) và bạn phải đợi trước khi thử lại",
+        "Yêu cầu của bạn được đưa vào hàng đợi và xử lý tự động sau đó",
+        "API âm thầm hủy yêu cầu của bạn mà không có bất kỳ phản hồi nào"
+      ],
+      "correct": 1,
+      "explanation": "Việc giới hạn tần suất sẽ trả về lỗi HTTP 429 (Too Many Requests). Bạn cần phải đợi và thử lại, thông thường sử dụng cơ chế giãn cách tăng dần (exponential backoff). Giới hạn tần suất giúp ngăn chặn việc lạm dụng và đảm bảo tính công bằng của hệ thống."
+    }
+  ]
+}

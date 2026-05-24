@@ -15,6 +15,12 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
+# Force stdout/stderr to use UTF-8 on Windows command prompt
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8')
+
 # --- Constants & Key Translation Guidelines ---
 SYSTEM_PROMPT = """
 You are an expert AI researcher and technical translator specialized in Machine Learning, Deep Learning, and System Engineering.
@@ -236,7 +242,6 @@ def process_translation(phases_dir, provider, api_key, model, force, limit, dela
 
 def main():
     parser = argparse.ArgumentParser(description="Auto-translate AI Engineering curriculum to Vietnamese.")
-    parser.add_init = True
     parser.add_argument("--phases", default="phases", help="Path to the phases directory (default: phases)")
     parser.add_argument("--provider", choices=["gemini", "openai"], default="gemini", help="LLM API provider (default: gemini)")
     parser.add_argument("--model", help="Specific model name (default: gemini-1.5-flash or gpt-4o-mini)")

@@ -1,0 +1,90 @@
+{
+  "lesson": "02-rewoo-plan-and-execute",
+  "title": "ReWOO và Kế hoạch-và-Thực thi: Phân tách việc Lập kế hoạch",
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "Tại sao gợi ý (prompt) của ReAct tăng lên theo cấp số nhân (quadratically) theo độ sâu của vòng lặp?",
+      "options": [
+        "Mô hình tự tách từ tố (re-tokenizes) ở mỗi bước",
+        "Mỗi bước đều phải mang theo toàn bộ ngữ cảnh trước đó bao gồm mọi suy nghĩ và quan sát trước đó",
+        "Các lược đồ công cụ (tool schemas) bị lặp lại trong mỗi lần gọi",
+        "Nhà cung cấp tính phí theo số byte thay vì số lượng từ tố"
+      ],
+      "correct": 1,
+      "explanation": "ReAct bao gồm lại các suy nghĩ và quan sát trước đó ở mỗi bước mới, làm cho tổng độ dài gợi ý tăng theo bình phương của độ sâu vòng lặp."
+    },
+    {
+      "stage": "pre",
+      "question": "Sự phân chia ba vai trò để định nghĩa ReWOO là gì?",
+      "options": [
+        "Bộ đọc (Reader), Bộ viết (Writer), Bộ duyệt (Reviewer)",
+        "Bộ lập kế hoạch (Planner), Công nhân (Workers), Bộ giải quyết (Solver)",
+        "Tác nhân (Actor), Bộ đánh giá (Evaluator), Bộ phản tư (Reflector)",
+        "Bộ tạo sinh (Generator), Bộ phê bình (Critic), Bộ tối ưu hóa (Optimizer)"
+      ],
+      "correct": 1,
+      "explanation": "ReWOO phân tách rõ ràng một Bộ lập kế hoạch phát ra một đồ thị DAG, các Công nhân chịu trách nhiệm lấy bằng chứng, và một Bộ giải quyết chịu trách nhiệm tổng hợp câu trả lời cuối cùng."
+    },
+    {
+      "stage": "check",
+      "question": "Những con số tiêu đề nổi bật nào được bài báo báo cáo cho ReWOO so với ReAct trên tập HotpotQA?",
+      "options": [
+        "Tiết kiệm ~5 lần từ tố và tăng +4 độ chính xác tuyệt đối",
+        "Tốn ~2 lần từ tố và tăng +10 độ chính xác",
+        "Lượng từ tố tương đương và tăng +1 độ chính xác",
+        "Tiết kiệm 10 lần từ tố và giảm -2 độ chính xác"
+      ],
+      "correct": 0,
+      "explanation": "ReWOO báo cáo mức giảm lượng từ tố khoảng 5 lần và tăng độ chính xác tuyệt đối thêm +4 điểm trên tập dữ liệu HotpotQA so với ReAct."
+    },
+    {
+      "stage": "check",
+      "question": "Một trình giữ chỗ như #E1 bên trong một nút kế hoạch ReWOO có nghĩa là gì?",
+      "options": [
+        "Một mã lỗi được trả về bởi công nhân 1",
+        "Một tham chiếu được thay thế tại thời điểm điều phối bằng đầu ra của một nút công nhân trước đó",
+        "Một bộ đếm số lần thử lại để lấy bằng chứng",
+        "Một mã nhận dạng phiên bản bộ lập kế hoạch"
+      ],
+      "correct": 1,
+      "explanation": "Các nút kế hoạch sử dụng các tham chiếu bằng chứng như #E1, #E2 để bộ thực thi thay thế chúng bằng đầu ra thực tế của các công nhân thượng nguồn."
+    },
+    {
+      "stage": "check",
+      "question": "Tại sao ReWOO khu trú lỗi tốt hơn so với ReAct?",
+      "options": [
+        "Các công nhân sẽ lập tức làm sập lượt chạy khi gặp bất kỳ lỗi nào",
+        "Một lỗi trong một công nhân trở thành một chuỗi thông báo mà Bộ giải quyết nhìn thấy cùng với kế hoạch gốc, do đó sự suy giảm hiệu năng là trên từng nút chứ không phải trên từng bước",
+        "ReWOO tự động thử lại mỗi lệnh gọi bị lỗi tối đa mười lần",
+        "Bộ lập kế hoạch phát ra một DAG hoàn toàn mới sau mỗi lỗi xảy ra"
+      ],
+      "correct": 1,
+      "explanation": "Việc xử lý lỗi trên từng nút cùng với kế hoạch gốc trong ngữ cảnh giúp Bộ giải quyết có thể hạ cấp hoạt động một cách nhẹ nhàng, thay vì phải suy luận gỡ lỗi ngay giữa luồng tính toán như ReAct."
+    },
+    {
+      "stage": "post",
+      "question": "Hình thái tác vụ nào phù hợp nhất với mô hình Kế hoạch-và-Hành động hơn so với ReWOO thông thường?",
+      "options": [
+        "Một phép tra cứu thông tin thực tế đơn giản gồm hai bước",
+        "Một quỹ đạo điều hướng web hoặc di động dài 40 bước",
+        "Một tác vụ phân loại trong một lượt chạy duy nhất",
+        "Một câu hỏi số học thuần túy"
+      ],
+      "correct": 1,
+      "explanation": "Kế hoạch-và-Hành động được xây dựng cho các tác tử (agent) trên web và di động có chu kỳ dài (trên 30 bước), nơi một quỹ đạo ReAct đơn lẻ sẽ dễ dàng bị mất đi tính mạch lạc."
+    },
+    {
+      "stage": "post",
+      "question": "Kết quả tinh lọc bộ lập kế hoạch của ReWOO có ý nghĩa gì đối với các tác tử (agent) trong sản xuất thực tế?",
+      "options": [
+        "Các mô hình tiên tiến nhất phải được sử dụng trong mọi bước chạy",
+        "Một bộ lập kế hoạch nhỏ (khoảng 7B) có thể tương đương với một mô hình giáo viên lớn vì bộ lập kế hoạch không bao giờ nhìn thấy các quan sát từ môi trường",
+        "Chất lượng lập kế hoạch sẽ giảm sút nếu mô hình có ít hơn 7 tỷ tham số",
+        "Quá trình tinh lọc đòi hỏi dữ liệu huấn luyện RL dựa trên gradient"
+      ],
+      "correct": 1,
+      "explanation": "Vì bộ lập kế hoạch không cần nhìn thấy các quan sát trực tiếp, các vết chạy kế hoạch từ một mô hình giáo viên lớn có thể được truyền tải một cách hoàn hảo sang một bộ lập kế hoạch nhỏ được tinh chỉnh."
+    }
+  ]
+}

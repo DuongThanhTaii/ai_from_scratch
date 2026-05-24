@@ -1,0 +1,64 @@
+{
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "Tại sao GPU lại nhanh hơn CPU khi huấn luyện mạng nơ-ron?",
+      "options": [
+        "GPU có tốc độ xung nhịp cao hơn CPU",
+        "GPU có thể thực hiện hàng nghìn phép toán ma trận song song đồng thời",
+        "GPU có nhiều RAM hơn CPU",
+        "GPU sử dụng ngôn ngữ lập trình hiệu quả hơn"
+      ],
+      "correct": 1,
+      "explanation": "GPU có hàng nghìn lõi được tối ưu hóa cho tính toán song song, khiến chúng trở nên lý tưởng cho các phép nhân ma trận chiếm phần lớn thời gian huấn luyện mạng nơ-ron."
+    },
+    {
+      "stage": "pre",
+      "question": "VRAM đề cập đến đại lượng nào?",
+      "options": [
+        "RAM ảo được hệ điều hành sử dụng làm không gian tráo đổi (swap)",
+        "RAM video trên GPU, độc lập với RAM hệ thống",
+        "Tổng lượng RAM khả dụng trên tất cả các thiết bị",
+        "Một loại bộ nhớ đệm của CPU"
+      ],
+      "correct": 1,
+      "explanation": "VRAM (Video RAM) là bộ nhớ chuyên dụng trên GPU. Nó giới hạn kích thước của các mô hình và kích thước lô dữ liệu (batch size) bạn có thể sử dụng trong quá trình huấn luyện, tách biệt với RAM chính của hệ thống."
+    },
+    {
+      "stage": "post",
+      "question": "Lệnh nào xác minh GPU NVIDIA của bạn được phát hiện và hiển thị trạng thái hiện tại của nó?",
+      "options": [
+        "gpu --status",
+        "nvidia-smi",
+        "torch.cuda.list_devices()",
+        "lspci | grep gpu"
+      ],
+      "correct": 1,
+      "explanation": "nvidia-smi (NVIDIA System Management Interface) hiển thị hiệu suất sử dụng GPU, lượng bộ nhớ đã dùng, nhiệt độ và các tiến trình đang chạy. Đây là công cụ tiêu chuẩn để xác minh tính khả dụng của GPU."
+    },
+    {
+      "stage": "post",
+      "question": "Khi đánh giá hiệu năng nhân ma trận giữa GPU và CPU, tại sao bạn phải gọi torch.cuda.synchronize() trước khi đo thời gian chạy của GPU?",
+      "options": [
+        "Để truyền dữ liệu từ bộ nhớ CPU sang bộ nhớ GPU",
+        "Để đảm bảo tất cả các hoạt động của GPU đã hoàn tất trước khi dừng bộ đếm thời gian",
+        "Để đặt lại tốc độ xung nhịp GPU về tần số cơ bản",
+        "Để giải phóng bộ nhớ GPU không sử dụng"
+      ],
+      "correct": 1,
+      "explanation": "Các hoạt động của GPU là bất đồng bộ - Python sẽ phản hồi ngay lập tức trong khi GPU vẫn đang tính toán. Lệnh synchronize() sẽ chặn chương trình cho đến khi tất cả các hoạt động trên GPU kết thúc, giúp đo thời gian chính xác."
+    },
+    {
+      "stage": "post",
+      "question": "Sử dụng quy tắc ngón tay cái fp16, khoảng bao nhiêu tham số có thể nằm vừa trong 24 GB VRAM?",
+      "options": [
+        "24 tỷ tham số",
+        "12 tỷ tham số",
+        "6 tỷ tham số",
+        "48 tỷ tham số"
+      ],
+      "correct": 1,
+      "explanation": "Trong định dạng fp16, mỗi tham số sử dụng 2 byte. 24 GB / 2 byte = 12 tỷ tham số. Đây là một ước tính thô; lượng sử dụng thực tế còn bao gồm các kích hoạt (activations), đạo hàm (gradients) và các trạng thái của trình tối ưu hóa."
+    }
+  ]
+}
