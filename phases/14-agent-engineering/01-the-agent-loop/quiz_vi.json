@@ -1,0 +1,90 @@
+{
+  "lesson": "01-the-agent-loop",
+  "title": "Vòng lặp Tác tử: Quan sát, Suy nghĩ, Hành động",
+  "questions": [
+    {
+      "stage": "pre",
+      "question": "Tại sao một mô hình ngôn ngữ lớn (LLM) độc lập lại hoạt động giống như một bộ tự động điền (autocomplete) thay vì một tác tử?",
+      "options": [
+        "Nó không thể đọc tệp tin, chạy truy vấn, hoặc xác thực các tuyên bố với thế giới bên ngoài",
+        "Cửa sổ ngữ cảnh của nó quá nhỏ để chứa câu hỏi",
+        "Nó từ chối trả lời nếu không có gợi ý hệ thống (system prompt)",
+        "Nó chỉ tạo ra một từ tố (token) tại một thời điểm"
+      ],
+      "correct": 0,
+      "explanation": "Một LLM không có vòng lặp và không có công cụ chỉ có thể tạo ra văn bản từ các trọng số của nó; nó không thể quan sát trạng thái hoặc hành động dựa trên đó."
+    },
+    {
+      "stage": "pre",
+      "question": "Ba nhãn nào xuất hiện trong vết ReAct chuẩn từ bài báo của Yao và các cộng sự năm 2022?",
+      "options": [
+        "Gợi ý (Prompt), Phản hồi (Response), Phần thưởng (Reward)",
+        "Suy nghĩ (Thought), Hành động (Action), Quan sát (Observation)",
+        "Lập kế hoạch (Plan), Thực thi (Execute), Phản hồi phản tư (Reflect)",
+        "Hệ thống (System), Người dùng (User), Trợ lý (Assistant)"
+      ],
+      "correct": 1,
+      "explanation": "ReAct đan xen các dòng Suy nghĩ, Hành động và Quan sát trong một luồng duy nhất."
+    },
+    {
+      "stage": "check",
+      "question": "Thành phần nào dưới đây KHÔNG phải là một trong năm thành phần mà bài học liệt kê cho một vòng lặp tác tử?",
+      "options": [
+        "Bộ đệm tin nhắn (Message buffer)",
+        "Bộ đăng ký công cụ (Tool registry)",
+        "Bộ định dạng quan sát (Observation formatter)",
+        "Trình tối ưu hóa gradient (Gradient optimizer)"
+      ],
+      "correct": 3,
+      "explanation": "Năm thành phần là bộ đệm tin nhắn, bộ đăng ký công cụ, điều kiện dừng, giới hạn lượt chạy và bộ định dạng quan sát. Trình tối ưu hóa gradient thuộc về quá trình huấn luyện, không thuộc về vòng lặp suy luận."
+    },
+    {
+      "stage": "check",
+      "question": "Vai trò của giới hạn lượt chạy (turn budget) trong vòng lặp là gì?",
+      "options": [
+        "Nó giới hạn số lượng từ tố trên mỗi phản hồi",
+        "Nó giới hạn cứng số lần lặp lại của vòng lặp để ngăn chặn tác tử chạy vô tận",
+        "Nó kiểm soát số lượng công cụ mà bộ đăng ký công cụ hiển thị",
+        "Nó giới hạn tần suất yêu cầu đối với nhà cung cấp LLM"
+      ],
+      "correct": 1,
+      "explanation": "Giới hạn lượt chạy là một giới hạn về số lần lặp lại của vòng lặp; các tác tử năm 2026 thường chạy từ 40 đến 400 bước và cần một giới hạn phù hợp với tác vụ."
+    },
+    {
+      "stage": "check",
+      "question": "Điều gì đã thay đổi trong sự dịch chuyển suy luận bản địa (native-reasoning) giai đoạn 2025-2026 so với các từ tố Suy nghĩ dựa trên gợi ý?",
+      "options": [
+        "Luồng kiểm soát vòng lặp được thay thế bằng một đồ thị có hướng không chu trình (DAG)",
+        "Các từ tố Suy nghĩ hiện được phát ra trên một kênh suy luận riêng biệt được truyền qua các lượt",
+        "Các mô hình đã ngừng sử dụng lệnh gọi công cụ và chỉ dựa trên chuỗi suy nghĩ (chain-of-thought)",
+        "Các quan sát được loại bỏ hoàn toàn khỏi gợi ý"
+      ],
+      "correct": 1,
+      "explanation": "Nội dung suy luận di chuyển sang một kênh chuyên dụng (thường được mã hóa giữa các nhà cung cấp), nhưng luồng kiểm soát quan sát-suy nghĩ-hành động vẫn không thay đổi."
+    },
+    {
+      "stage": "post",
+      "question": "Tại sao bài học lại nói đầu ra của công cụ là dữ liệu đầu vào không đáng tin cậy?",
+      "options": [
+        "Thời gian chạy công cụ chậm và không đáng tin cậy",
+        "Nội dung truy xuất có thể mang các hướng dẫn ẩn như xóa kho lưu trữ và chỉ có đầu vào trực tiếp từ người dùng mới được coi là sự cho phép",
+        "Kết quả công cụ luôn lớn hơn cửa sổ ngữ cảnh của mô hình",
+        "Nhà cung cấp loại bỏ các byte đầu ra của công cụ theo mặc định"
+      ],
+      "correct": 1,
+      "explanation": "Tài liệu OpenAI CUA tuyên bố rõ ràng rằng chỉ những hướng dẫn trực tiếp từ người dùng mới được coi là sự cho phép; đầu ra của công cụ có thể chứa các hướng dẫn đối nghịch và phải được coi là không đáng tin cậy."
+    },
+    {
+      "stage": "post",
+      "question": "Tại sao bài học lại khẳng định mọi khung làm việc (framework) năm 2026 vẫn chạy ReAct bên dưới?",
+      "options": [
+        "Bởi vì các nhà cung cấp yêu cầu từ khóa ReAct trong gợi ý",
+        "Bởi vì luồng kiểm soát quan sát-suy nghĩ-hành động là bất biến; các khung làm việc khác nhau về việc tạo điểm kiểm tra (checkpointing), tác tử (actors), mẫu vai trò (role templates), và vết chạy xung quanh nó",
+        "Bởi vì Yao và các cộng sự sở hữu bằng sáng chế về vòng lặp",
+        "Bởi vì LangGraph buộc tất cả các khung làm việc khác phải kế thừa từ nó"
+      ],
+      "correct": 1,
+      "explanation": "Sự khác biệt giữa Claude Agent SDK, OpenAI Agents SDK, LangGraph, AutoGen, CrewAI, Agno, và Mastra là về những gì bao quanh vòng lặp, chứ không phải bản thân vòng lặp."
+    }
+  ]
+}
