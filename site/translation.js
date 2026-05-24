@@ -17,7 +17,7 @@
 
       // Index
       tagline: '435 lessons. 20 phases. Every algorithm built from raw math before a single framework gets imported.',
-      attribution: 'Maintained by Rohit Ghumare and contributors. Run on your own machine.',
+      attribution: 'Maintained by Duong Thanh Tai and contributors. Run on your own machine.',
       preface_eyebrow: 'How this works',
       preface_p1: 'Most AI material teaches in scattered pieces. A paper here, a fine-tuning post there, a flashy agent demo somewhere else. The pieces rarely line up. You ship a chatbot but can\'t explain its loss curve. You hook a function to an agent but can\'t say what attention does inside the model that\'s calling it.',
       preface_p2: 'This curriculum is the spine. 20 phases, 435 lessons, four languages: Python, TypeScript, Rust, Julia. Linear algebra at one end, autonomous swarms at the other. Every algorithm gets built from raw math first. Backprop. Tokenizer. Attention. Agent loop. By the time PyTorch shows up, you already know what it\'s doing under the hood.',
@@ -122,7 +122,7 @@
 
       // Index
       tagline: '435 bài học. 20 giai đoạn. Mọi thuật toán được xây dựng từ toán học thuần túy trước khi nhập bất kỳ thư viện nào.',
-      attribution: 'Duy trì bởi Rohit Ghumare và các cộng sự. Chạy trên máy tính của riêng bạn.',
+      attribution: 'Duy trì bởi Dương Thanh Tài và các cộng sự. Chạy trên máy tính của riêng bạn.',
       preface_eyebrow: 'Cách hoạt động',
       preface_p1: 'Hầu hết các tài liệu AI được giảng dạy thành các phần rời rạc. Một bài báo ở đây, một bài viết tinh chỉnh (fine-tuning) ở kia, một bản giới thiệu tác tử (agent) hào nhoáng ở nơi khác. Các phần hiếm khi ăn khớp với nhau. Bạn tạo ra một chatbot nhưng không thể giải thích đường cong độ mất mát (loss curve) của nó. Bạn gắn một hàm vào một tác tử nhưng không thể giải thích cơ chế tự chú ý (attention) làm gì bên trong mô hình đang gọi nó.',
       preface_p2: 'Chương trình học này là cột sống. Gồm 20 giai đoạn, 435 bài học, bốn ngôn ngữ: Python, TypeScript, Rust, Julia. Đại số tuyến tính ở một đầu, các hệ tác tử tự trị (autonomous swarms) ở đầu kia. Mọi thuật toán được xây dựng từ toán học thô trước tiên. Lan truyền ngược (Backpropagation). Bộ tách từ (Tokenizer). Cơ chế tự chú ý (Attention). Vòng lặp tác tử (Agent loop). Cho đến khi PyTorch xuất hiện, bạn đã biết nó đang hoạt động như thế nào bên dưới.',
